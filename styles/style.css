@@ -91,11 +91,16 @@ body * {
   left: 0;
   z-index: 1;
   transform: translateY(-50%);
+
+  animation: slide-bakc 0.3s;
 }
 
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-in 0.4s forwards;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 
 /* No position absolute vai fazer os elementos se sobre por, assim o button vai para o andar zero junto com o span, colocando z-index: 1, o span ficara por cima */
@@ -183,7 +188,6 @@ footer {
 }
 
 /* Media queries */
-
 @media (min-width: 700px) {
   :root {
     --bg-url: url(../assets/bg-desktop.jpg);
@@ -191,5 +195,27 @@ footer {
 
   .light {
     --bg-url: url(../assets/bg-desktop-light.jpg);
+  }
+}
+
+/* Animation */
+
+@keyframes slide-in {
+  from {
+    left: 0%;
+  }
+
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-bakc {
+  from {
+    left: 50%;
+  }
+
+  to {
+    left: 0%;
   }
 }
